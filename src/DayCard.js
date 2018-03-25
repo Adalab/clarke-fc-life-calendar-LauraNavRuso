@@ -3,19 +3,10 @@ import React, { Component } from 'react';
 class DayCard extends Component {
   render() {
     return (
-      <div className="App">
+      <div className={`calendar-day calendar-day${this.props.manolito}`}>
 
-        <header className="App-header">
-          <h1 className="App-title">Good/bad-day calendar</h1>
-        </header>
+        Soy el elemento {this.props.manolito}
 
-        <div className="access-to-editionView">+
-
-
-        </div>
-
-
-    
       </div>
     );
   }

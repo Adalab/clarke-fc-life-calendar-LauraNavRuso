@@ -12,8 +12,6 @@ class App extends Component {
 
     console.log(dayOrderInYear);
 
-
-
     return (
       <div className="App">
 
@@ -32,7 +30,7 @@ class App extends Component {
 
 
           {dayOrderInYear.map(x => (
-            `Me gusta el ${x}`
+              <DayCard manolito={`${x}`} />
           ))}
 
 
