@@ -21,7 +21,55 @@ body {
   font-size: 50px;
 }
 
-.calendar {
+.editonView-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 80%;
+  max-width: 350px;
+  margin: auto;
+}
+
+.label-for-date-input,
+.label-for-happyMsg-input {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  text-align: left;
+}
+
+.date-input {
+  margin-bottom: 50px;
+}
+
+.dayState-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.editionView-dayState {
+  list-style: none;
+  margin-bottom: 50px;
+}
+
+.editionView-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 80%;
+  max-width: 350px;
+  margin: auto;
+}
+
+.editionView-saveButton {
+  margin-bottom: 10px;
+}
+
+.dayListView {
   display: grid;
   grid-template-columns: repeat(25, 1fr);
   grid-gap: 10px;
