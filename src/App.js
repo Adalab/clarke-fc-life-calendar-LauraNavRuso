@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       date: "",
       dayType: "",
-      happyMsg: ""
+      happyMsg: "",
+      dayData: []
     };
 
     this.handleClickSaveButton = this.handleClickSaveButton.bind(this);
@@ -24,10 +25,15 @@ class App extends Component {
   }
 
   saveDayData() {
+    const date = document.querySelector('.date-input').value;
+    const dayType = document.querySelector('input[name="options"]:checked').value;
+    const happyMsg = document.querySelector('.happyMsg-input').value;
+
     this.setState({
-      date: document.querySelector('.date-input').value,
-      dayType: document.querySelector('input[name="options"]:checked').value,
-      happyMsg: document.querySelector('.happyMsg-input').value
+      date: date,
+      dayType: dayType,
+      happyMsg: happyMsg,
+      dayData:[...this.state.dayData, {date, dayType, happyMsg}]
     });
   }
 
@@ -51,6 +57,18 @@ class App extends Component {
     document.querySelector('.happyMsg-input').value = "";
     document.getElementById("happyMsg-input").disabled = true;
   }
+
+
+  componentWillUpdate(nextProps, nextState){
+    localStorage.setItem('dayData', JSON.stringify(nextState.dayData));
+  }
+
+  componentWillMount(nextProps, nextState){
+    localStorage.getItem('dayData') && this.setState ({
+      dayData: JSON.parse(localStorage.getItem('dayData')),
+    });
+  }
+
 
 
   render() {
@@ -106,3 +124,24 @@ class App extends Component {
 }
 
 export default App;
+
+
+    // DayCard.defaultProps = {
+    //   color: 'blue'
+    // }
+
+
+
+
+    // saveDayData() {
+    //   const date = this.state.date;
+    //   const dayType = this.state.dayType;
+    //   const happyMsg = this.state.happyMsg;
+    //
+    //   this.setState({
+    //     date: document.querySelector('.date-input').value,
+    //     dayType: document.querySelector('input[name="options"]:checked').value,
+    //     happyMsg: document.querySelector('.happyMsg-input').value,
+    //     dayData:[...this.state.dayData, {date, dayType, happyMsg}]
+    //   });
+    // }
