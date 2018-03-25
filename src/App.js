@@ -7,21 +7,25 @@ class App extends Component {
     super(props);
 
     this.state = {
-      dayType: ''
+      date: "",
+      dayType: "",
+      happyMsg: ""
     };
 
     this.saveDayType = this.saveDayType.bind(this);
   }
 
   saveDayType(e) {
-    var selectedDayType = document.querySelector('input[name="options"]:checked').value;
-    console.log('>  ' + selectedDayType);
+
+
     this.setState({
-      dayType: e.currentTarget.value
+      date: document.querySelector('.date-input').value,
+      dayType: e.currentTarget.value,
+      happyMsg: document.querySelector('.happyMsg-input').value
     });
   }
 
-  
+
 
   render() {
 
@@ -76,10 +80,4 @@ class App extends Component {
 
 export default App;
 
-
-
-            //
-            // <label for="good-day">Día bueno</label>
-            // <input id="good-day" type="radio" value="debitcard" name="paymentmethods" />
-            // <label for="bad-day">Día malo</label>
-            // <input id="bad-day" type="radio" value="creditcard" name="paymentmethods" />
+    // var selectedDayType = document.querySelector('input[name="options"]:checked').value;
