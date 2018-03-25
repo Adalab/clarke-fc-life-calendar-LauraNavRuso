@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import DayCard from './DayCard';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dayType: ''
+    };
+
+    this.saveDayType = this.saveDayType.bind(this);
+  }
+
+  saveDayType(e) {
+    var selectedDayType = document.querySelector('input[name="options"]:checked').value;
+    console.log('>  ' + selectedDayType);
+    this.setState({
+      dayType: e.currentTarget.value
+    });
+  }
+
+  
+
   render() {
 
     let dayOrderInYear= [];
@@ -22,16 +43,16 @@ class App extends Component {
 
         <div className="editionView">
           <form className="editonView-form">
-            <label for="date-input" className="label-for-date-input">Fecha</label>
+            <label htmlFor="date-input" className="label-for-date-input">Fecha</label>
             <input type="date" id="date-input" className="date-input"></input>
 
             <h3 className="dayState-title">Estado</h3>
               <ul className="editionView-dayState">
-                <li><label htmlFor="good"><input type="radio" value="good" id="good" name="options" onChange={this.handleChange}/> Día bueno</label></li>
-                <li><label htmlFor="bad"><input type="radio" value="bad" id="bad" name="options" onChange={this.handleChange} /> Día malo</label></li>
+                <li><label htmlFor="good"><input type="radio" value="good" id="good" name="options" onChange={this.saveDayType}/> Día bueno</label></li>
+                <li><label htmlFor="bad"><input type="radio" value="bad" id="bad" name="options" onChange={this.saveDayType} /> Día malo</label></li>
               </ul>
 
-            <label for="happyMsg-input" className="label-for-happyMsg-input">Mensaje</label>
+            <label htmlFor="happyMsg-input" className="label-for-happyMsg-input">Mensaje</label>
             <textarea id="happyMsg-input" className="happyMsg-input" cols="30" placeholder="¿Por qué es un buen día?"></textarea>
           </form>
 
