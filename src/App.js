@@ -12,18 +12,29 @@ class App extends Component {
       happyMsg: ""
     };
 
-    this.saveDayType = this.saveDayType.bind(this);
+    this.handleClickSaveButton = this.handleClickSaveButton.bind(this);
   }
 
-  saveDayType(e) {
+  handleClickSaveButton() {
+    this.saveDayData();
+    this.clearFormInputs();
+  }
 
-
+  saveDayData() {
     this.setState({
       date: document.querySelector('.date-input').value,
-      dayType: e.currentTarget.value,
+      dayType: document.querySelector('input[name="options"]:checked').value,
       happyMsg: document.querySelector('.happyMsg-input').value
     });
   }
+
+  clearFormInputs() {
+    document.querySelector('.date-input').value = "";
+    document.querySelector('input[name="options"]:checked').checked = false;
+    document.querySelector('.happyMsg-input').value = "";
+  }
+
+
 
 
 
@@ -52,16 +63,17 @@ class App extends Component {
 
             <h3 className="dayState-title">Estado</h3>
               <ul className="editionView-dayState">
-                <li><label htmlFor="good"><input type="radio" value="good" id="good" name="options" onChange={this.saveDayType}/> Día bueno</label></li>
-                <li><label htmlFor="bad"><input type="radio" value="bad" id="bad" name="options" onChange={this.saveDayType} /> Día malo</label></li>
+                <li><label htmlFor="good"><input type="radio" value="good" id="good" name="options" /> Día bueno</label></li>
+                <li><label htmlFor="bad"><input type="radio" value="bad" id="bad" name="options" /> Día malo</label></li>
               </ul>
 
             <label htmlFor="happyMsg-input" className="label-for-happyMsg-input">Mensaje</label>
             <textarea id="happyMsg-input" className="happyMsg-input" cols="30" placeholder="¿Por qué es un buen día?"></textarea>
+
           </form>
 
           <div className="editionView-buttons">
-            <button className="editionView-saveButton">Guardar</button>
+            <button className="editionView-saveButton" onClick={this.handleClickSaveButton}>Guardar</button>
             <button className="editionView-cancelButton">Cancelar</button>
           </div>
         </div>
@@ -79,5 +91,3 @@ class App extends Component {
 }
 
 export default App;
-
-    // var selectedDayType = document.querySelector('input[name="options"]:checked').value;
