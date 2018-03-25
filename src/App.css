@@ -86,3 +86,11 @@ body {
   align-items: center;
   color: white;
 }
+
+.calendar-day-good {
+  background-color: green;
+}
+
+.calendar-day-bad {
+  background-color: red;
+}

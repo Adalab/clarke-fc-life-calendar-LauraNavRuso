@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 class DayCard extends Component {
   render() {
     return (
-      <li className={`calendar-day calendar-day${this.props.dayOrder}`}>
+      <li className={`calendar-day calendar-day${this.props.date} calendar-day-${this.props.dayType}`}>
 
-        Día {this.props.dayOrder}
+        {this.props.date}
 
       </li>
     );

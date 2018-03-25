@@ -70,9 +70,7 @@ class App extends Component {
   }
 
 
-
   render() {
-
     let dayOrderInYear= [];
 
     for (let i = 1; i < 366; i++) {
@@ -81,7 +79,6 @@ class App extends Component {
 
     return (
       <div className="App">
-
         <header className="App-header">
           <h1 className="App-title">Good/bad-day calendar</h1>
         </header>
@@ -112,11 +109,11 @@ class App extends Component {
         </div>
 
         <ol className="dayListView">
-          {dayOrderInYear.map(x => (
-              <DayCard key={x}
-                       dayOrder={`${x}`} />
+          {this.state.dayData.map(x => (
+              <DayCard key={x.date}
+                       date={x.date}
+                       dayType={x.dayType} />
           ))}
-
         </ol>
       </div>
     );
@@ -128,20 +125,4 @@ export default App;
 
     // DayCard.defaultProps = {
     //   color: 'blue'
-    // }
-
-
-
-
-    // saveDayData() {
-    //   const date = this.state.date;
-    //   const dayType = this.state.dayType;
-    //   const happyMsg = this.state.happyMsg;
-    //
-    //   this.setState({
-    //     date: document.querySelector('.date-input').value,
-    //     dayType: document.querySelector('input[name="options"]:checked').value,
-    //     happyMsg: document.querySelector('.happyMsg-input').value,
-    //     dayData:[...this.state.dayData, {date, dayType, happyMsg}]
-    //   });
     // }
