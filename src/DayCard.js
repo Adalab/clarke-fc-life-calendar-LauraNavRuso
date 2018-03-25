@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class DayCard extends Component {
   render() {
     return (
-      <div className={`calendar-day calendar-day${this.props.manolito}`}>
+      <li className={`calendar-day calendar-day${this.props.dayOrder}`}>
 
-        Soy el elemento {this.props.manolito}
+        Día {this.props.dayOrder}
 
-      </div>
+      </li>
     );
   }
 }

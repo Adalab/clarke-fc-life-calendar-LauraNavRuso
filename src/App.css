@@ -23,11 +23,18 @@ body {
 
 .calendar {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(25, 1fr);
   grid-gap: 10px;
   padding: 20px;
 }
 
 .calendar-day {
-  background-color: orange;
+  background-color: #C4C3C6;
+  height: 50px;
+  width: 50px;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }

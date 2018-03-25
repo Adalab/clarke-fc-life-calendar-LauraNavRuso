@@ -10,8 +10,6 @@ class App extends Component {
       dayOrderInYear.push(i);
     }
 
-    console.log(dayOrderInYear);
-
     return (
       <div className="App">
 
@@ -19,45 +17,22 @@ class App extends Component {
           <h1 className="App-title">Good/bad-day calendar</h1>
         </header>
 
-        <div className="access-to-editionView">+
 
+        <div className="access-to-editionView">+
+        </div>
+
+        <div className="editionView">
 
         </div>
 
 
-        <div className="calendar">
-
-
-
+        <ol className="calendar">
           {dayOrderInYear.map(x => (
-              <DayCard manolito={`${x}`} />
+              <DayCard key={x}
+                       dayOrder={`${x}`} />
           ))}
 
-
-
-
-          <div className="calendar-day">
-            hola
-          </div>
-
-          <div className="calendar-day">
-            hola
-          </div>
-
-          <div className="calendar-day">
-            hola
-          </div>
-
-          <div className="calendar-day">
-            hola
-          </div>
-        </div>
-
-
-
-
-
-
+        </ol>
       </div>
     );
   }
