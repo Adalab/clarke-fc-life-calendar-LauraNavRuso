@@ -13,11 +13,14 @@ class App extends Component {
     };
 
     this.handleClickSaveButton = this.handleClickSaveButton.bind(this);
+    this.clearAndDisableMsgTextarea = this.clearAndDisableMsgTextarea.bind(this);
+    this.handleChangeRadioInput = this.handleChangeRadioInput.bind(this);
   }
 
   handleClickSaveButton() {
     this.saveDayData();
     this.clearFormInputs();
+    this.enableMsgTextarea();
   }
 
   saveDayData() {
@@ -34,8 +37,20 @@ class App extends Component {
     document.querySelector('.happyMsg-input').value = "";
   }
 
+  enableMsgTextarea() {
+    document.getElementById("happyMsg-input").disabled = false;
+  }
 
+  handleChangeRadioInput() {
+    if (document.querySelector('input[name="options"]:checked').value === "bad") {
+        this.clearAndDisableMsgTextarea();
+    }
+  }
 
+  clearAndDisableMsgTextarea() {
+    document.querySelector('.happyMsg-input').value = "";
+    document.getElementById("happyMsg-input").disabled = true;
+  }
 
 
   render() {
@@ -63,18 +78,18 @@ class App extends Component {
 
             <h3 className="dayState-title">Estado</h3>
               <ul className="editionView-dayState">
-                <li><label htmlFor="good"><input type="radio" value="good" id="good" name="options" /> Día bueno</label></li>
-                <li><label htmlFor="bad"><input type="radio" value="bad" id="bad" name="options" /> Día malo</label></li>
+                <li><label htmlFor="good"><input type="radio" value="good" id="good" name="options" onChange={this.handleChangeRadioInput} /> Día bueno</label></li>
+                <li><label htmlFor="bad"><input type="radio" value="bad" id="bad" name="options" onChange={this.handleChangeRadioInput} /> Día malo</label></li>
               </ul>
 
             <label htmlFor="happyMsg-input" className="label-for-happyMsg-input">Mensaje</label>
-            <textarea id="happyMsg-input" className="happyMsg-input" cols="30" placeholder="¿Por qué es un buen día?"></textarea>
+            <textarea id="happyMsg-input" className="happyMsg-input" cols="50" placeholder="¿Por qué es un buen día? (explica sólo cosas alegres; nadie quiere escuchar tus penas)"></textarea>
 
           </form>
 
           <div className="editionView-buttons">
-            <button className="editionView-saveButton" onClick={this.handleClickSaveButton}>Guardar</button>
-            <button className="editionView-cancelButton">Cancelar</button>
+            <button className="editionView-saveButton" onClick={this.handleClickSaveButton} >Guardar</button>
+            <button className="editionView-cancelButton" onClick={this.clearFormInputs} >Cancelar</button>
           </div>
         </div>
 
