@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class EditionView extends Component {
 
@@ -21,8 +22,8 @@ class EditionView extends Component {
         </form>
 
         <div className="editionView-buttons">
-          <button className="editionView-saveButton" onClick={this.props.handleClickSaveButton} >Guardar</button>
-          <button className="editionView-cancelButton" onClick={this.props.clearFormInputs} >Cancelar</button>
+          <Link to='/' className="editionView-saveButton" onClick={this.props.handleClickSaveButton} >Guardar</Link>
+          <Link to='/' className="editionView-cancelButton" onClick={this.props.clearFormInputs} >Cancelar</Link>
         </div>
       </div>
     );

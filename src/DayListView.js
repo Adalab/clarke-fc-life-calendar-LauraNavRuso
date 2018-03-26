@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import DayCard from './DayCard';
 
 class DayListView extends Component {
@@ -12,7 +13,9 @@ class DayListView extends Component {
 
     return (
       <div className="dayListView-generalContainer">
-        <div className="access-to-editionView">+
+
+        <div className="access-to-editionView">
+          <Link className="prueba" to='/editionView'> + </Link>
         </div>
 
         <ol className="dayListView">

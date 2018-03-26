@@ -16,9 +16,13 @@ body {
 
 .access-to-editionView {
   background-color: rgb(61, 170, 253);
-  color: white;
   padding: 10px;
   font-size: 50px;
+}
+
+.prueba {
+  color: white;
+  text-decoration:none
 }
 
 .editonView-form {
@@ -67,6 +71,15 @@ body {
 
 .editionView-saveButton {
   margin-bottom: 10px;
+  text-decoration: none;
+  background-color: purple;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.editionView-cancelButton {
+  text-decoration: none;
 }
 
 .dayListView {

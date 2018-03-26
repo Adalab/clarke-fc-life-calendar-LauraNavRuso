@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import DayListView from './DayListView';
 import EditionView from './EditionView';
@@ -78,11 +78,21 @@ class App extends Component {
           <h1 className="App-title">Good/bad-day calendar</h1>
         </header>
 
-        <EditionView handleClickSaveButton={this.handleClickSaveButton}
-                      clearFormInputs={this.clearFormInputs}
-                      handleChangeRadioInput={this.handleChangeRadioInput}/>
 
-        <DayListView dayData={this.state.dayData} />
+        <Switch>
+          <Route exact path='/'
+                 render={ () => <DayListView dayData={this.state.dayData} /> }
+          />
+          <Route path='/editionView'
+                 render={ () => <EditionView handleClickSaveButton={this.handleClickSaveButton}
+                                            clearFormInputs={this.clearFormInputs}
+                                            handleChangeRadioInput={this.handleChangeRadioInput} /> }
+          />
+        </Switch>
+
+
+
+
 
       </div>
     );
@@ -90,7 +100,6 @@ class App extends Component {
 }
 
 export default App;
-
 
     // DayCard.defaultProps = {
     //   color: 'blue'
